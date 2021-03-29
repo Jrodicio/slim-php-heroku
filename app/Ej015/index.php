@@ -13,6 +13,32 @@
      * dibujarlo por pantalla.
      */
 
-    require "FiguraGeometrica.php";
+    require "Figuras.php";
+
+    print("<h3>Rectangulos</h3>");
+
+    $rectangulo = new Rectangulo(4,8);
+
+    print($rectangulo->ToString());
+    print($rectangulo->Dibujar());
+
+    $rectangulo->SetColor("Red");
+    print($rectangulo->Dibujar());
+
+    $rectangulo->SetColor("Black");
+    print($rectangulo->Dibujar());
+
+    print("<h3>Triangulo</h3>");
+
+    $triangulo = new Triangulo(6,3);
+
+    print($triangulo->ToString());
+    print($triangulo->Dibujar());
+
+    $triangulo->SetColor("Red");
+    print($triangulo->Dibujar());
+
+    $triangulo->SetColor("Black");
+    print($triangulo->Dibujar());
 
 ?>

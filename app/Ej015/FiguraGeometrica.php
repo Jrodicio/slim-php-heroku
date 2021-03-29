@@ -17,5 +17,32 @@
      {
          #Campos
          protected $_color;
+         protected $_perimetro;
+         protected $_superficie;
+
+         #Métodos
+         public function __construct() 
+         {
+            $this->SetColor("lightblue");
+         }
+         protected abstract function CalcularDatos();
+         public abstract function Dibujar();
+
+         public function GetColor()
+         {
+             return $this->_color;
+         }
+
+         public function SetColor($color)
+         {
+             $this->_color = $color;
+         }
+
+         public function ToString()
+         {
+             $string = "Perimetro: ".$this->_perimetro;
+             $string .= "<br>Superficie: ".$this->_superficie;
+             return $string;
+         }
      }
 ?>
