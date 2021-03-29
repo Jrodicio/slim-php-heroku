@@ -9,9 +9,24 @@
 
     require __DIR__ . '/../vendor/autoload.php';
 
+
     $ficheros = scandir("./");
 
-    print_r($ficheros);
+    print("<h1>Ejercicios Julian Rodicio</h1>");
+    for($i=3; $i<count($ficheros); $i++)
+    {
+        if(str_contains($ficheros[$i],"Ej"))
+        {
+            $file = $ficheros[$i];
+            if(str_contains($file,".php"))
+            {
+                $file = substr($ficheros[$i],0,strlen($ficheros[$i])-4);
+            }
+            print("<a href='https://jrodicio-prog3.herokuapp.com/$ficheros[$i]'>$file</a><br>");
+        }
+        
+    }
+    
 
 
 ?>
