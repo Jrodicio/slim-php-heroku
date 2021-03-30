@@ -74,7 +74,7 @@
             {
                 for($j = 0; $j < $this->ladoDos ; $j++)
                 {
-                    $dibujo .= "*&nbsp";
+                    $dibujo .= "*";
                 }
                 $dibujo .= "<br>";
             }

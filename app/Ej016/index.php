@@ -16,7 +16,7 @@
     require "clases.php";
 
     $vertice1 = new Punto (-1, -1);
-    $vertice3 = new Punto (5, 6);
+    $vertice3 = new Punto (6, 6);
 
     $rectangulo = new Rectangulo($vertice1, $vertice3);
     $datosRectangulo = "Perimetro: ".$rectangulo->perimetro;
@@ -25,6 +25,6 @@
     $datosRectangulo .= "<br>Lado dos: ".$rectangulo->ladoDos;
 
     print("<h3>Datos rectangulo</h3>");
-    print("$datosRectangulo");
+    print($datosRectangulo);
     print($rectangulo->Dibujar());
 ?>
