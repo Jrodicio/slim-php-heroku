@@ -30,7 +30,7 @@
 
     print("<h3>Triangulo</h3>");
 
-    $triangulo = new Triangulo(6,3);
+    $triangulo = new Triangulo(10,6);
 
     print($triangulo->ToString());
     print($triangulo->Dibujar());

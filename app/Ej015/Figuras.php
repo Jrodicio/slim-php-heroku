@@ -104,14 +104,29 @@
         {
             
             $dibujo = "<p style=\"color:".$this->GetColor()."\">";
-            $espacio = 2 * $this->_base - 2;
+            $base = $this->_base;
+            $altura = $this->_altura;
 
-            for($i = 0; $i < $this->_altura ; $i++) //ciclos altura
+            for($i = 1; $i <= $altura ; $i++) //ciclos altura
             {
-                for($j = 0; $j < $this->_base; $j++) //ciclos base
+                $auxPuntos = intval(($base/$altura)*$i);
+                $auxEspacio = ($base - $auxPuntos);
+                if ($auxPuntos == 0)
+                {
+                    $auxEspacio--;
+                }
+                for($j = 0; $j < $auxEspacio; $j++)
+                {
+                    
+                    $dibujo .= "&nbsp";
+                }
+                
+                $ciclo = 0;
+                do //ciclos base
                 {
                     $dibujo .= "*";
-                }
+                    $ciclo++;
+                }while($ciclo < $auxPuntos);
                 
                 $dibujo .= "<br>";
             }
@@ -134,3 +149,5 @@
     
 
 ?>
+
+
