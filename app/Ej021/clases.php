@@ -2,15 +2,14 @@
 /*
     Rodicio Julián
 
-    Aplicación No 20 (Registro CSV)
-    Archivo: registro.php
-    método:POST
-    Recibe los datos del usuario(nombre, clave,mail )por POST ,
-    crear un objeto y utilizar sus métodos para poder hacer el alta,
-    guardando los datos en usuarios.csv.
-    retorna si se pudo agregar o no.
-    Cada usuario se agrega en un renglón diferente al anterior.
-    Hacer los métodos necesarios en la clase usuario
+    Aplicación No 21 ( Listado CSV y array de usuarios)
+    Archivo: listado.php
+    método:GET
+    Recibe qué listado va a retornar(ej:usuarios,productos,vehículos,...etc),por ahora solo tenemos
+    usuarios).
+    En el caso de usuarios carga los datos del archivo usuarios.csv.
+    se deben cargar los datos en un array de usuarios.
+    Retorna los datos que contiene ese array en una lista
  */
 
     class Usuario
@@ -37,6 +36,13 @@
             {
                 return false;
             }
+        }
+
+        public function ToString()
+        {
+            $strUsuario = $this->_usuario;
+            $strUsuario .= " - ".$this->_mail;
+            return $strUsuario;
         }
     }
 
