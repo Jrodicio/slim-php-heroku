@@ -24,20 +24,22 @@
         $i = 0;
         while (!feof($archivoUsuarios))
         {
-
             $arrayUsuario = explode(',',fgets($archivoUsuarios));
-            $usuarioLeido = new Usuario($arrayUsuario[0],$arrayUsuario[1],$arrayUsuario[2]);
+            if($arrayUsuario[0] != "")
+            {
+                $usuarioLeido = new Usuario($arrayUsuario[0],$arrayUsuario[1],$arrayUsuario[2]);
             
-            $arrayListado[$i] = ($usuarioLeido);
-            $i++;
+                $arrayListado[$i] = ($usuarioLeido);
+                $i++;
+            }
         }
         fclose($archivoUsuarios);
     
-        $strRetorno = null;
+        $strRetorno = "<ul>\n";
 
         foreach($arrayListado as $objeto)
         {
-            $strRetorno .= $objeto->ToString();
+            $strRetorno .= "<li>".$objeto->ToString()."</li>";
         }
 
         echo $strRetorno;
