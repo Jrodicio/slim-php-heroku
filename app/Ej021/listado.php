@@ -15,6 +15,12 @@
     include "clases.php";
         
     $tipoListado = $_GET["listado"];
+
+    if (!isset($tipoListado))
+    {
+        return "Falta parametro [listado]";
+    }
+    
     $strArchivo = $tipoListado.".csv";
     $arrayListado = array();
 
