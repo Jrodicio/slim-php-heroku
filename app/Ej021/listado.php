@@ -32,16 +32,23 @@
             $i++;
         }
         fclose($archivoUsuarios);
+    
+        $strRetorno = null;
+
+        foreach($arrayListado as $objeto)
+        {
+            $strRetorno .= $objeto->ToString();
+        }
+
+        echo $strRetorno;
+        return $strRetorno;
     }
-
-    $strRetorno = null;
-
-    foreach($arrayListado as $objeto)
+    else
     {
-        $strRetorno .= $objeto->ToString();
+        echo "El listado no existe";
+        return "El listado no existe";
     }
 
-    echo $strRetorno;
-    return $strRetorno;
+    
     
 ?>
