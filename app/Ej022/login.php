@@ -18,6 +18,11 @@
     $clave = $_POST["clave"];
     $mail = $_POST["mail"];
 
+    if (!isset($clave) || !isset($mail))
+    {
+        return "Faltan parametros";
+    }
+
     $usuarioLogin = new Usuario("login", $clave, $mail);
     $arrayUsuarios = Usuario::LeerUsuariosCSV("usuarios.csv");
 
@@ -39,10 +44,6 @@
                 }
             }
         }
-        echo "Usuario no registrado";
-        return "Usuario no registrado";
     }
-    echo "nada";
-    return "nada";
-    
+    return "Usuario no registrado";    
 ?>
