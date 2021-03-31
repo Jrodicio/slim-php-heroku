@@ -11,6 +11,7 @@
     retorna si se pudo agregar o no.
     Cada usuario se agrega en un renglón diferente al anterior.
     Hacer los métodos necesarios en la clase usuario
+
  */
     include "clases.php";
     
@@ -35,7 +36,7 @@
                 if(Usuario::CompararUsuarios($nuevoUsuario,$usuarioLeido))
                 {
                     fclose($archivoUsuarios);
-                    //echo "Usuario ya existente";
+                    echo "Usuario ya existente";
                     return "Usuario ya existente";
                 }
             }
@@ -46,7 +47,7 @@
         fwrite($archivoUsuarios, "$nuevoUsuario->_usuario,$nuevoUsuario->_clave,$nuevoUsuario->_mail\n");
         fclose($archivoUsuarios);
 
-        //echo "Usuario [$nuevoUsuario->_usuario] creado correctamente";
+        echo "Usuario [$nuevoUsuario->_usuario] creado correctamente";
         return "Usuario [$nuevoUsuario->_usuario] creado correctamente";
     }
     
