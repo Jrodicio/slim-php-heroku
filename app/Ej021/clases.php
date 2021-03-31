@@ -28,7 +28,7 @@
 
         static function CompararUsuarios(Usuario $usuario1, Usuario $usuario2)
         {
-            if($usuario1->_usuario == $usuario2->_usuario || $usuario1->_clave == $usuario2->_clave)
+            if($usuario1->_usuario == $usuario2->_usuario || $usuario1->_mail == $usuario2->_mail)
             {
                 return true;
             }
