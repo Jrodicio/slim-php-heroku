@@ -13,13 +13,13 @@
     “Usuario no registrado si no coincide el mail“
     Hacer los métodos necesarios en la clase usuario
 */
-
+    echo "se intenta algo";
     $clave = $_POST["clave"];
     $mail = $_POST["mail"];
-
+    echo "se intenta algo";
     $usuarioLogin = new Usuario("login", $clave, $mail);
     $arrayUsuarios = Usuario::LeerUsuariosCSV("usuarios.csv");
-
+    echo "se intenta algo";
     if ($arrayUsuarios != null)
     {
         foreach($arrayUsuarios as $usuarioExistente)
@@ -41,5 +41,7 @@
         echo "Usuario no registrado";
         return "Usuario no registrado";
     }
+    echo "nada";
+    return "nada";
     
 ?>
