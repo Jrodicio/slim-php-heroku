@@ -27,7 +27,7 @@
             $arrayUsuario = explode(',',fgets($archivoUsuarios));
             if($arrayUsuario[0] != "")
             {
-                $usuarioLeido = new Usuario($arrayUsuario[0],$arrayUsuario[1],$arrayUsuario[2]);
+                $usuarioLeido = new Usuario($arrayUsuario[0],$arrayUsuario[1],str_replace("\n","",$arrayUsuario[2]));
             
                 $arrayListado[$i] = ($usuarioLeido);
                 $i++;
@@ -42,6 +42,7 @@
             $strRetorno .= "<li>".$objeto->ToString()."</li>";
         }
 
+        $strRetorno .= "</ul>";
         echo $strRetorno;
         return $strRetorno;
     }
