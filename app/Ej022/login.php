@@ -45,5 +45,6 @@
             }
         }
     }
+    echo "Usuario no registrado";
     return "Usuario no registrado";    
 ?>
