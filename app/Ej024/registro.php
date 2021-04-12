@@ -27,7 +27,7 @@
     $strArchivo = "JSON/usuarios.json";
 
         
-    if (isset($nombre) && isset($clave) && isset($mail))
+    if (isset($nombre) && isset($clave) && isset($mail) && isset($apellido))
     {
         
         $id = random_int(1,10000);
@@ -49,7 +49,7 @@
 		}
       
         
-        $nuevoUsuario = new Usuario($id, $nombre, $clave, $mail, $fechaAlta, $nombreFoto);
+        $nuevoUsuario = new Usuario($id, $nombre, $apellido, $clave, $mail, $fechaAlta, $nombreFoto);
 
         $file = $directorioArchivos.$strArchivo;
 
