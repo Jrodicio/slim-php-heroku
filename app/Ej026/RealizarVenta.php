@@ -28,6 +28,8 @@
         $fileUsuarios = "Archivos/Usuario/JSON/usuarios.json";
         $fileVentas = "Archivos/Venta/ventas.json";
 
+        $arrayProductos = array();
+
         if(file_exists($fileProducto) && file_exists($fileUsuarios))
         {
             //Productos
@@ -39,10 +41,14 @@
 
                 if(!is_bool($productoLeido))
                 {
+
                     if($productoLeido->CompararCodigoBarras($codigoBarras))
                     {
                         $productoVendido = $productoLeido;
+                        $productoLeido->AddStock($qItems*(-1));
                     }
+                    
+                    array_push($arrayProductos,$productoLeido);
                 }
             }
             fclose($archivoProductos);
@@ -70,7 +76,6 @@
                 {
                     if($qItems <= $productoVendido->_stock)
                     {
-                        //$restarStock = $qItems * -1;
                         $ventaRealizada = new Venta($productoVendido,$usuarioGenerador,$qItems);
                         $jsonVenta = $ventaRealizada->ToJSON();
 
@@ -78,7 +83,13 @@
                         fwrite($archivoVentas, "$jsonVenta\n");
                         fclose($archivoVentas);
                         
-                        ////FALTA RESTAR STOCK DE PRODUCTO Y ACTUALIZAR EN ARCHIVO PRODUCTO
+                        $archivoProductos = fopen($fileProducto,"w");
+                        for($j = 0; $j < count($arrayProductos); $j++)
+                        {
+                            $jsonProducto = $arrayProductos[$j]->ToJSON();
+                            fwrite($archivoProductos, "$jsonProducto\n");
+                        }
+                        fclose($archivoProductos);
                         
                         echo "Venta realizada";
                         return "Venta realizada";
